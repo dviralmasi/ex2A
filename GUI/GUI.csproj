@@ -70,6 +70,9 @@
     <Compile Include="ViewClient\AreYouSureWindow.xaml.cs">
       <DependentUpon>AreYouSureWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewClient\bari.xaml.cs">
+      <DependentUpon>bari.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewClient\DataUserControl.xaml.cs">
       <DependentUpon>DataUserControl.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ViewClient\AreYouSureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewClient\bari.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
