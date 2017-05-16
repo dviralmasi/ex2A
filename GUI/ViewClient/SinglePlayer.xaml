@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:GUI.ViewClient"
         mc:Ignorable="d"
         xmlns:controls="clr-namespace:GUI.ViewClient"
-        Title="SinglePlayer" Height="300" Width="300" Loaded="SinglePlayer_Loaded">
+        Title="SinglePlayer" Height="300" Width="300">
     <Grid Margin="0,0,0,0">
         <Button x:Name="button" Content="main menu" Canvas.Left="215" Canvas.Top="10" Width="75" Margin="207,6,10,244" RenderTransformOrigin="-0.535,4.095"/>
         <Button x:Name="button1" Content="solve maze" Canvas.Left="116" Canvas.Top="10" Width="75" Margin="110,6,107,244"/>
         <Button x:Name="button2" Content="restart game" Canvas.Left="10" Canvas.Top="10" Width="75" Click="restart_Click" Margin="10,6,207,244"/>
-        <controls:MazePlayer x:Name="dfgyuio" HorizontalAlignment="Left" Height="227" Margin="0,42,0,0" VerticalAlignment="Top" Width="292" Rows = "{Binding MazeRows}" Cols = "{Binding MazeCols}" 
-                            />
+        <controls:MazePlayer x:Name="MazeUserControl" HorizontalAlignment="Left" Height="229" Margin="10,31,0,0" VerticalAlignment="Top" Width="272" Loaded="SinglePlayer_Loaded" Rows = "{Binding MazeRows}" Cols = "{Binding MazeCols}" MazeName = "{Binding MazeName}"  MazeString="{Binding MazeString}"/>
     </Grid>
 </Window>
-

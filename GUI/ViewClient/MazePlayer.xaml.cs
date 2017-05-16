@@ -1,5 +1,4 @@
 ﻿using GUI.ViewModel;
-using MazeLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MazeLib;
 
 namespace GUI.ViewClient
 {
@@ -22,12 +22,9 @@ namespace GUI.ViewClient
     /// </summary>
     public partial class MazePlayer : UserControl
     {
-        private SinglePlayerViewModel vm;
         public MazePlayer()
         {
             InitializeComponent();
-            vm = new SinglePlayerViewModel();
-            DataContext = vm;
         }
 
         public int Rows
@@ -45,34 +42,55 @@ namespace GUI.ViewClient
             get { return (int)GetValue(ColProperty); }
             set { SetValue(ColProperty, value); }
         }
+
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty ColProperty =
          DependencyProperty.Register("Cols", typeof(int), typeof(MazePlayer), new
         PropertyMetadata(0));
 
-        public Maze Maze
+        public string MazeName
         {
-            get { return (Maze)GetValue(MazeProperty); }
-            set { SetValue(MazeProperty, value); }
+            get { return (string)GetValue(MazeNameProperty); }
+            set { SetValue(MazeNameProperty, value); }
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
-        public static readonly DependencyProperty MazeProperty =
-         DependencyProperty.Register("Maze", typeof(int), typeof(MazePlayer), new
+        public static readonly DependencyProperty MazeNameProperty =
+         DependencyProperty.Register("MazeName", typeof(string), typeof(MazePlayer), new
         PropertyMetadata(0));
 
-        //like constructor
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        public Maze Mazef
+        {
+            get { return (Maze)GetValue(MazefProperty); }
+            set { SetValue(MazefProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
+        public static readonly DependencyProperty MazefProperty =
+         DependencyProperty.Register("Mazef", typeof(Maze), typeof(MazePlayer), new
+        PropertyMetadata(0));
+
+        public string MazeString
+        {
+            get { return (string)GetValue(MazeStringProperty); }
+            set { SetValue(MazeStringProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
+        public static readonly DependencyProperty MazeStringProperty =
+         DependencyProperty.Register("MazeString", typeof(string), typeof(MazePlayer), new
+        PropertyMetadata(0));
+
+
+        public void doNothing()
         {
             //exeCommand("generate");
             double high = canvas.ActualHeight;
             double width = canvas.ActualWidth;
             double rectWidth = width / Cols;
             double recthigh = high / Rows;
-            for (int i=0; i< Rows; i++)
+            for (int i = 0; i < Rows; i++)
             {
-                for (int j=0; j<Cols; j++)
+                for (int j = 0; j < Cols; j++)
                 {
-                    if (Maze[i,j] == MazeLib.CellType.Wall)
+                    if (Mazef[i, j] == CellType.Wall)
                     {
                         Path path = new Path()
                         {
@@ -88,7 +106,7 @@ namespace GUI.ViewClient
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-           // e.Key
+            // e.Key
         }
     }
 }

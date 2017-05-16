@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MazeLib;
 
 namespace GUI.ViewClient
 {
@@ -24,9 +25,9 @@ namespace GUI.ViewClient
 
         public SinglePlayer()
         {
-            InitializeComponent();
             vm = new SinglePlayerViewModel();
             this.DataContext = vm;
+            InitializeComponent();
         }
 
         private void restart_Click(object sender, RoutedEventArgs e)
@@ -46,7 +47,7 @@ namespace GUI.ViewClient
 
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
         {
-            MazePlayer mazePlayer = new MazePlayer();
+            MazeUserControl.doNothing();
         }
     }
 }

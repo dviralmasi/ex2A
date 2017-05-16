@@ -46,7 +46,16 @@ namespace GUI.ViewModel
             }
         }
 
-        public Maze Maze
+        public string MazeString
+        {
+            get { return model.MazeString; }
+            set
+            {
+                model.MazeString = value;
+            }
+        }
+
+        public Maze Mazes
         {
             get { return model.Maze; }
             set

@@ -19,6 +19,7 @@ namespace GUI.ClientModel
         private int mazeRows;
         private int mazeCols;
         private string myMission;
+        private string mazeString;
         private Position initialPosition;
         private Maze maze;
         private NetworkStream stream = null;
@@ -44,6 +45,17 @@ namespace GUI.ClientModel
                 NotifyPropertyChanged("Maze");
             }
         }
+
+        public string MazeString
+        {
+            get { return mazeString; }
+            set
+            {
+                mazeString = value;
+                NotifyPropertyChanged("MazeString");
+            }
+        }
+
         public string MazeName {
             get { return mazeName; }
             set { mazeName = value;

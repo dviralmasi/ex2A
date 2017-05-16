@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\..\..\Desktop\תכנות מתקדם 2\תרגיל 1\MazeGeneratorLib.dll</HintPath>
+      <HintPath>D:\Users\Admin\Desktop\תכנות מתקדם 2\תרגיל 1\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\..\..\Desktop\תכנות מתקדם 2\תרגיל 1\MazeLib.dll</HintPath>
+      <HintPath>D:\Users\Admin\Desktop\תכנות מתקדם 2\תרגיל 1\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\ex2\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -73,13 +73,17 @@
     <Compile Include="View\IClientHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="App.config" />
     <None Include="Controller\packages.config" />
     <None Include="Modell\App.config" />
     <None Include="Modell\packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GUI\GUI.csproj">
+      <Project>{bbc1108f-4b73-4cb4-a47f-c251b8ee9dce}</Project>
+      <Name>GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjectAdapter\ObjectAdapter.csproj">
       <Project>{8cccfa34-092c-409c-ae90-f7511ca3849c}</Project>
       <Name>ObjectAdapter</Name>

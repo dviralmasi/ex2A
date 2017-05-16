@@ -18,6 +18,7 @@ namespace GUI.ClientModel
         int MazeRows { get; set; }
         int MazeCols { get; set; }
         Maze Maze { get; set; }
+        string MazeString { get; set; }
         string generateCommand();
 
     }
