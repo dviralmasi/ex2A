@@ -21,7 +21,7 @@ namespace GUI.ViewModel
             };
         }
 
-        public string MazeName
+        public string MazeNames
         {
             get { return model.MazeName; }
             set
@@ -46,7 +46,7 @@ namespace GUI.ViewModel
             }
         }
 
-        public string MazeString
+        public string MazeStrings
         {
             get { return model.MazeString; }
             set
@@ -64,12 +64,11 @@ namespace GUI.ViewModel
             }
         }
 
-        public Maze exeCommand(string command)
+        public void exeCommand(string command)
         {
             // convert the json to maze object
             string strMaze = model.generateCommand();
-            Maze maze = Maze.FromJSON(strMaze);
-            return maze;
+            Maze.FromJSON(strMaze);
         }
     }
 }

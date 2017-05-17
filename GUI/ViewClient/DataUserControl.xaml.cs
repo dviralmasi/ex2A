@@ -27,37 +27,41 @@ namespace GUI.ViewClient
         public DataUserControl()
         {
             InitializeComponent();
-        }
-        /*
-
+        }     
+        
         public int Rows
         {
             get { return (int)GetValue(RowsProperty); }
-            set { SetValue(RowsProperty, value); }
+            set { SetValue(RowsProperty, value);
+            }
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty RowsProperty =
-         DependencyProperty.Register("Rows", typeof(int), typeof(MazePlayer), new
+         DependencyProperty.Register("Rows", typeof(int), typeof(DataUserControl), new
         PropertyMetadata(0));
 
         public int Cols
         {
-            get { return (int)GetValue(ColProperty); }
-            set { SetValue(ColProperty, value); }
+            get
+            {
+                return (int)GetValue(ColProperty); }
+            set
+            {
+                SetValue(ColProperty, value);
+            }
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty ColProperty =
-         DependencyProperty.Register("Cols", typeof(int), typeof(MazePlayer), new
+         DependencyProperty.Register("Cols", typeof(int), typeof(DataUserControl), new
         PropertyMetadata(0));
 
-        public Maze Maze
+        public string MyName
         {
-            get { return (Maze)GetValue(MazeProperty); }
-            set { SetValue(MazeProperty, value); }
+            get { return (string)GetValue(MyNameProperty); }
+            set { SetValue(MyNameProperty, value); }
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
-        public static readonly DependencyProperty MazeProperty =
-         DependencyProperty.Register("Maze", typeof(int), typeof(MazePlayer), new
-        PropertyMetadata(0));*/
+        public static readonly DependencyProperty MyNameProperty =
+         DependencyProperty.Register("MyName", typeof(string), typeof(DataUserControl));
     }
 }

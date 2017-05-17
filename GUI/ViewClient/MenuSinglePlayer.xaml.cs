@@ -31,8 +31,16 @@ namespace GUI.ViewClient
 
         private void startGame_Click(object sender, RoutedEventArgs e)
         {
+            // generate the maze
+            vm.exeCommand("generate");
+            //here loaded function will be calling
             SinglePlayer single = new SinglePlayer();
             single.Show();
+        }
+
+        private void MenuSinglePlayer_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataUserControl.DataContext = vm;
         }
     }
 }

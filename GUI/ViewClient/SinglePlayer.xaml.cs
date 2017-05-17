@@ -47,7 +47,8 @@ namespace GUI.ViewClient
 
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
         {
-            MazeUserControl.doNothing();
+            MazePlayer mazePlayer = new MazePlayer();
+           // MazeUserControl.doNothing();
         }
     }
 }

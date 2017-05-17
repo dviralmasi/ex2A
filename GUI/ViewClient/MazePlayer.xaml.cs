@@ -55,8 +55,7 @@ namespace GUI.ViewClient
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty MazeNameProperty =
-         DependencyProperty.Register("MazeName", typeof(string), typeof(MazePlayer), new
-        PropertyMetadata(0));
+         DependencyProperty.Register("MazeName", typeof(string), typeof(MazePlayer));
 
         public Maze Mazef
         {
@@ -65,8 +64,7 @@ namespace GUI.ViewClient
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty MazefProperty =
-         DependencyProperty.Register("Mazef", typeof(Maze), typeof(MazePlayer), new
-        PropertyMetadata(0));
+         DependencyProperty.Register("Mazef", typeof(Maze), typeof(MazePlayer) );
 
         public string MazeString
         {
@@ -75,8 +73,7 @@ namespace GUI.ViewClient
         }
         // Using a DependencyProperty as the backing store for Rows. This enables animation, styling,
         public static readonly DependencyProperty MazeStringProperty =
-         DependencyProperty.Register("MazeString", typeof(string), typeof(MazePlayer), new
-        PropertyMetadata(0));
+         DependencyProperty.Register("MazeString", typeof(string), typeof(MazePlayer));
 
 
         public void doNothing()
@@ -104,9 +101,9 @@ namespace GUI.ViewClient
             }
         }
 
-        private void UserControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            // e.Key
-        }
+        //private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    // e.Key
+        //}
     }
 }

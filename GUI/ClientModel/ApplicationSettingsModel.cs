@@ -25,13 +25,12 @@ namespace GUI.ClientModel
         }
         public int MazeCols {
             get { return Properties.Settings.Default.MazeCols; }
-            set { Properties.Settings.Default.MazeRows = value; }
+            set { Properties.Settings.Default.MazeCols = value; }
         }
         public int SearchAlgorithm {
             get { return Properties.Settings.Default.SearchAlgorithm; }
             set { Properties.Settings.Default.SearchAlgorithm = value; }
         }
-
 
         public void SaveSettings()
         {

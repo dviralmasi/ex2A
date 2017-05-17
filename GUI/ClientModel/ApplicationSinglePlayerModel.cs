@@ -31,6 +31,21 @@ namespace GUI.ClientModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// constructor of client
+        /// </summary>
+        public ApplicationSinglePlayerModel()
+        {
+            port = int.Parse(ConfigurationManager.AppSettings["Port"]);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
+            client = new TcpClient();
+            mazeRows = Properties.Settings.Default.MazeRows;
+            mazeCols = Properties.Settings.Default.MazeCols;
+
+
+        }
+
+
         public void NotifyPropertyChanged(string propName)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
@@ -90,15 +105,6 @@ namespace GUI.ClientModel
         /// </summary>
         private bool isMultiPlayer = false;
 
-
-        /// <summary>
-        /// constructor of client
-        /// </summary>
-        public ApplicationSinglePlayerModel() {
-            port = int.Parse(ConfigurationManager.AppSettings["Port"]);
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
-            client = new TcpClient();
-        }
 
         public string generateCommand()
         {
