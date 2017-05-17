@@ -103,10 +103,5 @@ namespace GUI.ViewClient
                 }
             }
         }
-
-        private void UserControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            // e.Key
-        }
     }
 }
