@@ -68,7 +68,7 @@ namespace Controller
                         }
                         string result = null;
                         result = controller.ExecuteCommand(commandLine, client);
-                    //for write all
+                        //for write all
                         result += '\n';
                         result += '@';
                         if (result != "\n@")

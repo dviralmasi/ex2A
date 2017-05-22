@@ -30,7 +30,8 @@ namespace GUI.ViewClient
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow win = (MainWindow)Application.Current.MainWindow;
+            MainWindow win = new MainWindow();
+            win = (MainWindow)Application.Current.MainWindow;
             win.Show();
             this.Close();
         }

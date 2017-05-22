@@ -5,12 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="525">
-    <Grid Margin="0,0,0,0">
-        <Button x:Name="button" Content="Single Player" HorizontalAlignment="Center" Margin="221,88,221,0" VerticalAlignment="Top" Width="75" Click="SinglePlayer_Click_1"/>
-        <Button x:Name="button1" Content="Multi player" HorizontalAlignment="Center" Margin="221,129,221,0" VerticalAlignment="Top" Width="75" Click="MultiPlayer_Click"/>
-        <Button x:Name="button2" Content="Settings" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
-        <Image x:Name="image" Source="C:\Users\USER\Source\Repos\ex2\ex2\GUI\resources\mazeLogo.jpg" HorizontalAlignment="Left" Height="70" Margin="219,10,0,0" VerticalAlignment="Top" Width="100"/>
-
-    </Grid>
+        Title="MainWindow" Height="406.5" Width="406.5">
+    <Viewbox Margin="0,0,-8,-2">
+        <Grid Height="433" Width="555">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="122*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="84*"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="62*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="SinglePlayer" Content="Single Player"  VerticalAlignment="Top" Width="100" Click="SinglePlayer_Click_1" Height="44"  Grid.Column="3" Margin="71,124,74,0"/>
+            <Button x:Name="MultiPlayer" Content="Multi player" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="100" Click="MultiPlayer_Click" Grid.Column="3" Margin="71,40,74,0" Height="41" Grid.Row="1" RenderTransformOrigin="0.454,1.729" Grid.RowSpan="2"/>
+            <Button x:Name="Settings" Content="Settings" HorizontalAlignment="Center" Margin="71,52,74,0" VerticalAlignment="Top" Width="100" Click="button2_Click" Grid.Row="2" Grid.Column="3" Height="43" Grid.RowSpan="2"/>
+            <Image x:Name="image" Source="C:\Users\USER\Source\Repos\ex2\ex2\GUI\resources\mazeLogo.jpg" HorizontalAlignment="Left" Height="70" Margin="71.144,0,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
+        </Grid>
+    </Viewbox>
 </Window>

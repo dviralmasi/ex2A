@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MazeLib;
+using System.ComponentModel;
+using System.Windows.Threading;
 
 namespace GUI.ViewClient
 {
@@ -23,32 +25,44 @@ namespace GUI.ViewClient
     {
         private SinglePlayerViewModel vm;
 
-        public SinglePlayer()
+        public SinglePlayer(SinglePlayerViewModel otherVm)
         {
-            vm = new SinglePlayerViewModel();
-            this.DataContext = vm;
             InitializeComponent();
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+                return;
+            this.vm = otherVm;
+            this.DataContext = vm;
+            
         }
 
+        public void setVm(SinglePlayerViewModel otherVm)
+        {
+            this.vm = otherVm;
+        }
         private void restart_Click(object sender, RoutedEventArgs e)
         {
-            AreYouSureWindow sureWindow = new AreYouSureWindow();
-            bool? result = sureWindow.ShowDialog();
-            if (result == true)
+            MessageBoxResult result = MessageBox.Show("Do you want to restart game?",
+                "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                // restart the game
-            }
-            else
-            {
-                // continue the game
+                MazeUserControl.updateToStartPos();
+            } 
 
-            }
+     
         }
 
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
         {
             MazePlayer mazePlayer = new MazePlayer();
-           // MazeUserControl.doNothing();
+        }
+
+        private void solveMaze_Click(object sender, RoutedEventArgs e)
+        {
+            string sol = vm.solveCommand();
+            MazeUserControl.SolveAnimation(sol);
+        
+            
+
         }
     }
 }

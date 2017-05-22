@@ -29,12 +29,12 @@ namespace GUI.ViewClient
             this.DataContext = vm;
         }
 
-        private void startGame_Click(object sender, RoutedEventArgs e)
+        public void startGame_Click(object sender, RoutedEventArgs e)
         {
             // generate the maze
             vm.exeCommand("generate");
             //here loaded function will be calling
-            SinglePlayer single = new SinglePlayer();
+            SinglePlayer single = new SinglePlayer(vm);
             single.Show();
         }
 

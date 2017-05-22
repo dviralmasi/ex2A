@@ -10,9 +10,9 @@ namespace GUI.ViewModel
     class SettingsViewModel: ViewModel
     {
         private ISettingsModel model;
-        public SettingsViewModel(ISettingsModel settingsModel)
+        public SettingsViewModel(ISettingsModel model)
         {
-            this.model = settingsModel;
+            this.model = model;
         }
         public string ServerIP
         {

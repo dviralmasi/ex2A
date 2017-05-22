@@ -21,6 +21,8 @@ namespace GUI.ClientModel
         private string myMission;
         private string mazeString;
         private Position initialPosition;
+        private Position currentPosition;
+        private Position endPosition;
         private Maze maze;
         private NetworkStream stream = null;
         private StreamWriter writer = null;
@@ -39,10 +41,14 @@ namespace GUI.ClientModel
             port = int.Parse(ConfigurationManager.AppSettings["Port"]);
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
             client = new TcpClient();
+            client.Connect(ep);
+
+            stream = client.GetStream();
+            reader = new StreamReader(stream);
+            writer = new StreamWriter(stream);
+
             mazeRows = Properties.Settings.Default.MazeRows;
             mazeCols = Properties.Settings.Default.MazeCols;
-
-
         }
 
 
@@ -89,6 +95,28 @@ namespace GUI.ClientModel
                 NotifyPropertyChanged("MazeCols");
             }
         }
+
+        public string ServerIP
+        {
+            get { return Properties.Settings.Default.ServerIP; }
+            set { Properties.Settings.Default.ServerIP = value; }
+        }
+        public int ServerPort
+        {
+            get { return Properties.Settings.Default.ServerPort; }
+            set { Properties.Settings.Default.ServerPort = value; }
+        }
+        public int SearchAlgorithm
+        {
+            get { return Properties.Settings.Default.SearchAlgorithm; }
+            set { Properties.Settings.Default.SearchAlgorithm = value; }
+        }
+
+        public void SaveSettings()
+        {
+            Properties.Settings.Default.Save();
+        }
+
         public Position InitialPosition 
         {
             get { return initialPosition; }
@@ -98,7 +126,26 @@ namespace GUI.ClientModel
                 NotifyPropertyChanged("InitialPosition");
             }
         }
-        
+
+        public Position CurrentPosition
+        {
+            get { return currentPosition; }
+            set
+            {
+                currentPosition = value;
+                NotifyPropertyChanged("CurrentPosition");
+            }
+        }
+
+        public Position EndPosition
+        {
+            get { return endPosition; }
+            set
+            {
+                endPosition = value;
+                NotifyPropertyChanged("EndPosition");
+            }
+        }
 
         /// <summary>
         ///  if we in multiplayer make it true
@@ -114,10 +161,51 @@ namespace GUI.ClientModel
             sb.Append(" " + MazeRows.ToString());
             sb.Append(" " + MazeCols.ToString());
             myMission = sb.ToString();
+            writer.WriteLine(myMission);
+            writer.Flush();
+            
+            // read all result
             string result = reader.ReadLine();
+            //string resultAllData;
+            while (true)
+            {
+                // we add '@' char for each string that we want to print, and stop the printing 
+                // when we arrive this char.
+                if (reader.Peek() == '@')
+                {
+                    result.TrimEnd('\n');
+                    break;
+                }
+                result += reader.ReadLine();          
+            }
+            reader.DiscardBufferedData();
             return result;
         }
+        
+        public string solve(string strSolve)
+        {
+            myMission = strSolve;
+            writer.WriteLine(myMission);
+            writer.Flush();
 
+            // read all result
+            string result = reader.ReadLine();
+            //string resultAllData;
+            while (true)
+            {
+                // we add '@' char for each string that we want to print, and stop the printing 
+                // when we arrive this char.
+                if (reader.Peek() == '@')
+                {
+                    result.TrimEnd('\n');
+                    break;
+                }
+                result += reader.ReadLine();
+            }
+            reader.DiscardBufferedData();
+            return result;
+        }
+        
 
         /// <summary>
         /// start game method acting the single and the multi game

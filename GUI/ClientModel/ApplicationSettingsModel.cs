@@ -18,16 +18,8 @@ namespace GUI.ClientModel
             get { return Properties.Settings.Default.ServerPort; }
             set { Properties.Settings.Default.ServerPort = value; }
         }
-
-        public int MazeRows {
-            get { return Properties.Settings.Default.MazeRows; }
-            set { Properties.Settings.Default.MazeRows = value; }
-        }
-        public int MazeCols {
-            get { return Properties.Settings.Default.MazeCols; }
-            set { Properties.Settings.Default.MazeCols = value; }
-        }
-        public int SearchAlgorithm {
+        public int SearchAlgorithm
+        {
             get { return Properties.Settings.Default.SearchAlgorithm; }
             set { Properties.Settings.Default.SearchAlgorithm = value; }
         }
@@ -36,5 +28,14 @@ namespace GUI.ClientModel
         {
             Properties.Settings.Default.Save();
         }
+        public int MazeRows {
+            get { return Properties.Settings.Default.MazeRows; }
+            set { Properties.Settings.Default.MazeRows = value; }
+        }
+        public int MazeCols {
+            get { return Properties.Settings.Default.MazeCols; }
+            set { Properties.Settings.Default.MazeCols = value; }
+        }
+        
     }
 }

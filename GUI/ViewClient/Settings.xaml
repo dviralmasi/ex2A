@@ -35,6 +35,8 @@ SelectedIndex="{Binding SearchAlgorithm}" IsEditable="False" Width="67">
             <ComboBoxItem>BFS</ComboBoxItem>
             <ComboBoxItem>DFS</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="100,26,0,-23" Grid.Row="5" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="OK_Click"/>
+        <Button x:Name="OK" Content="OK" HorizontalAlignment="Left" Margin="33,26,0,-22" Grid.Row="5" VerticalAlignment="Top" Width="75" Click="OK_Click" Grid.Column="0"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,26,37,-20" Grid.Row="5" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" Grid.Column="1"/>
+
     </Grid>
 </Window>

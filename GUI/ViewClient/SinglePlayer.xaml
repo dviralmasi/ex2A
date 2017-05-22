@@ -6,12 +6,22 @@
         xmlns:local="clr-namespace:GUI.ViewClient"
         xmlns:Control="clr-namespace:GUI.ViewClient"
         mc:Ignorable="d"
-        Title="SinglePlayer" Height="300" Width="300">
+        Title="SinglePlayer" Height="600" Width="600">
     <Grid Margin="0,0,0,0">
-        <Button x:Name="button" Content="main menu" Canvas.Left="215" Canvas.Top="10" Width="75" Margin="207,6,10,244" RenderTransformOrigin="-0.535,4.095"/>
-        <Button x:Name="button1" Content="solve maze" Canvas.Left="116" Canvas.Top="10" Width="75" Margin="110,6,107,244"/>
-        <Button x:Name="button2" Content="restart game" Canvas.Left="10" Canvas.Top="10" Width="75" Click="restart_Click" Margin="10,6,207,244"/>
-        <Control:MazePlayer x:Name="MazeUserControl" HorizontalAlignment="Left" Height="229" Margin="10,31,0,0" VerticalAlignment="Top" Width="272"
-                            Rows = "{Binding MazeRows}" Cols = "{Binding MazeCols}" MazeString="{Binding MazeStrings}" MazeName="{Binding MazeNames}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99.191"/>
+            <ColumnDefinition Width="100.191"/>
+            <ColumnDefinition Width="92.809"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33.638"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="mainMenu" Content="main menu" Width="75" Margin="8,6,10,7.638" Grid.Column="2" Grid.Row="0"/>
+        <Button x:Name="solveMaze" Content="solve maze" Width="75" Margin="11,6,14,7.638" Grid.Column="1" Grid.Row="0" Click="solveMaze_Click"/>
+        <Button x:Name="restartGame" Content="restart game" Width="75" Click="restart_Click" Margin="10,6,14,7.638" Grid.Column="0" Grid.Row="0"/>
+        <Control:MazePlayer x:Name="MazeUserControl" HorizontalAlignment="Center" Height="382" Margin="0,0,-297,153" VerticalAlignment="Center" Width="592" Grid.ColumnSpan="3"
+                            Loaded="SinglePlayer_Loaded" Rows = "{Binding MazeRows}" Cols = "{Binding MazeCols}" MazeString="{Binding MazeStrings}" MazeName="{Binding MazeNames}"
+                            Mazes ="{Binding MyMaze}" InitialPos="{Binding InitialPosition}" CurrentPos="{Binding CurrentPosition}" EndPos="{Binding EndPosition}"  Grid.Row="1"/>
     </Grid>
 </Window>
