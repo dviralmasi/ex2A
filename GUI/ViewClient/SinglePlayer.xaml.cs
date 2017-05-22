@@ -27,9 +27,10 @@ namespace GUI.ViewClient
 
         public SinglePlayer(SinglePlayerViewModel otherVm)
         {
-            InitializeComponent();
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
                 return;
+            InitializeComponent();
+            
             this.vm = otherVm;
             this.DataContext = vm;
             

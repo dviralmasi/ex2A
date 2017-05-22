@@ -80,10 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GUI\GUI.csproj">
-      <Project>{bbc1108f-4b73-4cb4-a47f-c251b8ee9dce}</Project>
-      <Name>GUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ObjectAdapter\ObjectAdapter.csproj">
       <Project>{8cccfa34-092c-409c-ae90-f7511ca3849c}</Project>
       <Name>ObjectAdapter</Name>

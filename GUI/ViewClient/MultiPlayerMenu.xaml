@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.ViewClient"
         mc:Ignorable="d"
-        Title="MultiPlayerMenu" Height="300" Width="300">
+        Title="MultiPlayerMenu" Height="300" Width="306.63">
     <Grid RenderTransformOrigin="1.274,0.483">
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="117,33,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="List of games:" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="button" Content="Join Game" HorizontalAlignment="Left" Margin="117,81,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <local:DataUserControl HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
 
-    </Grid>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="117,33,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListGames}"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="List of games:" VerticalAlignment="Top" Width="130"/>
+            <Button x:Name="button" Content="Join Game" HorizontalAlignment="Left" Margin="117,81,0,0" VerticalAlignment="Top" Width="75" Click="Join_Click"/>
+        <local:DataUserControl HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="107" Rows= "{Binding MazeRows}" Cols="{Binding MazeCols}" MyName="{Binding MazeNames}"/>
+            <Button x:Name="startGame" Content="start game" HorizontalAlignment="Left" Margin="99,239,0,0" VerticalAlignment="Top" Width="75" Click="startGame_Click" RenderTransformOrigin="0.268,0.235"/>
+        </Grid>
 </Window>

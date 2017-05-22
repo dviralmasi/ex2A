@@ -67,13 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClientModel\ApplicationMultiPlyaerModel.cs" />
     <Compile Include="ClientModel\ApplicationSettingsModel.cs" />
     <Compile Include="ClientModel\ApplicationSinglePlayerModel.cs" />
+    <Compile Include="ClientModel\IMultiPlayerModel.cs" />
     <Compile Include="ClientModel\ISettingsModel.cs" />
     <Compile Include="ClientModel\ISinglePlayerModel.cs" />
-    <Compile Include="ViewClient\AreYouSureWindow.xaml.cs">
-      <DependentUpon>AreYouSureWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewClient\DataUserControl.xaml.cs">
       <DependentUpon>DataUserControl.xaml</DependentUpon>
     </Compile>
@@ -86,12 +85,16 @@
     <Compile Include="ViewClient\MultiPlayerMenu.xaml.cs">
       <DependentUpon>MultiPlayerMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewClient\MultiPlayerWindowGame.xaml.cs">
+      <DependentUpon>MultiPlayerWindowGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewClient\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewClient\SinglePlayer.xaml.cs">
       <DependentUpon>SinglePlayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MultiPlayerViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
@@ -108,10 +111,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewClient\AreYouSureWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ViewClient\DataUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewClient\MultiPlayerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewClient\MultiPlayerWindowGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +176,10 @@
     <ProjectReference Include="..\SearchAlgorithmsLib\SearchAlgorithmsLib.csproj">
       <Project>{bf2311e7-54ff-490c-a888-222192a46c48}</Project>
       <Name>SearchAlgorithmsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerSide\ServerSide.csproj">
+      <Project>{8b327c10-3faa-42e1-8592-e85b68e97c8b}</Project>
+      <Name>ServerSide</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

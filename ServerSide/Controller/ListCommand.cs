@@ -37,8 +37,8 @@ namespace Controller
         public string Execute(string[] args, TcpClient client)
         {
             List <string> gameList = model.listGame();
-            JArray jsonConvert = new JArray(gameList);
-            return jsonConvert.ToString();
+           // JArray jsonConvert = new JArray(gameList);
+            return JsonConvert.SerializeObject(gameList, Formatting.Indented);
         }
     }
 }

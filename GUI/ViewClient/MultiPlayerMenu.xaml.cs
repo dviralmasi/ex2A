@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GUI.ViewModel;
+using Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +22,30 @@ namespace GUI.ViewClient
     /// </summary>
     public partial class MultiPlayerMenu : Window
     {
+         private ObservableCollection <string> listGameToJoin = new ObservableCollection<string>();
+        private MultiPlayerViewModel vm;
         public MultiPlayerMenu()
         {
             InitializeComponent();
+            vm = new MultiPlayerViewModel();
+            this.DataContext = vm;
         }
+      
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void startGame_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBoxResult wait = MessageBox.Show("Please wait for other player");
+            vm.StartGame();
+            MultiPlayerWindowGame multiPlayerGame = new MultiPlayerWindowGame(vm);
+            multiPlayerGame.Show();
         }
-        
+
+        private void Join_Click(object sender, RoutedEventArgs e)
+        {
+            string gameName = (string)comboBox.SelectedItem;
+            vm.JoinGame(gameName);
+            MultiPlayerWindowGame multiPlayerGame = new MultiPlayerWindowGame(vm);
+            multiPlayerGame.Show();
+        }
     }
 }

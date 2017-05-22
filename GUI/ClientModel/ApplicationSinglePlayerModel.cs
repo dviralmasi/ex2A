@@ -38,14 +38,9 @@ namespace GUI.ClientModel
         /// </summary>
         public ApplicationSinglePlayerModel()
         {
+            // create port and IP
             port = int.Parse(ConfigurationManager.AppSettings["Port"]);
             ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
-            client = new TcpClient();
-            client.Connect(ep);
-
-            stream = client.GetStream();
-            reader = new StreamReader(stream);
-            writer = new StreamWriter(stream);
 
             mazeRows = Properties.Settings.Default.MazeRows;
             mazeCols = Properties.Settings.Default.MazeCols;
@@ -153,8 +148,27 @@ namespace GUI.ClientModel
         private bool isMultiPlayer = false;
 
 
+        public void openConnection()
+        {
+            client = new TcpClient();
+            client.Connect(ep);
+            stream = client.GetStream();
+            reader = new StreamReader(stream);
+            writer = new StreamWriter(stream);
+        }
+
+        public void CloseConnection()
+        {
+            // close the connection and close the stream
+            client.Close();
+            stream.Dispose();
+            reader.Dispose();
+            writer.Dispose();
+        }
+
         public string generateCommand()
         {
+            openConnection();
             StringBuilder sb = new StringBuilder();
             sb.Append("generate ");
             sb.Append(mazeName.ToString());
@@ -179,11 +193,16 @@ namespace GUI.ClientModel
                 result += reader.ReadLine();          
             }
             reader.DiscardBufferedData();
+
+            //close the connection 
+            CloseConnection();
             return result;
         }
         
         public string solve(string strSolve)
         {
+            // connect to server
+            openConnection();
             myMission = strSolve;
             writer.WriteLine(myMission);
             writer.Flush();
@@ -203,6 +222,7 @@ namespace GUI.ClientModel
                 result += reader.ReadLine();
             }
             reader.DiscardBufferedData();
+            CloseConnection();
             return result;
         }
         

@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using MazeLib;
 using System.Threading;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace GUI.ViewClient
 {
@@ -29,7 +30,10 @@ namespace GUI.ViewClient
 
         public MazePlayer()
         {
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+                return;
             InitializeComponent();
+            
         }
 
         public int Rows
